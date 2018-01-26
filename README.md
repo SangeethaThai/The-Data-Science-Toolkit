@@ -18,6 +18,7 @@ Here is a little diagram to help understand the system.
 
 
 ## Pre-requisites:
+
    Before we get into the nitty-gritty of setting up/configuring the Jupyter Data Science Notebook, we need to go through some basic set up.
 
 1.  ### CREATE AMAZON WEB SERVICES (AWS) ACCOUNT
