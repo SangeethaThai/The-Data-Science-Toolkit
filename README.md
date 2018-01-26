@@ -142,6 +142,7 @@ Please follow the below steps to configure EC2 on Amazon Web Services (AWS).
   ### **_Step 10:_** ADD TAGS
     
   We are going to skip this section, and click “Next” to move on.
+  
   ![Skip Add Tags](images/addtags.PNG)
 
 
@@ -155,61 +156,70 @@ Please follow the below steps to configure EC2 on Amazon Web Services (AWS).
 
   ### **_Step 12:_** REVIEW YOUR EC2 INSTANCE CONFIGURATION AND CLICK “LAUNCH”.
   This will bring up a modal window to “Select or Create a Key Pair” (see below). 
-    -	From the dropdown select “Choose an existing key pair” 
-    -	Select the Key Pair you created in the beginning
-    -	Check the acknowledgement
-    -	And finally click “Launch Instances”
+  - From the dropdown select “Choose an existing key pair” 
+  - Select the Key Pair you created in the beginning
+  - Check the acknowledgement
+  - And finally click “Launch Instances”
+  
   ![Select Configured Key Pair](images/selectkeypair.PNG)
   
 
   ### **_Step 13:_** CHECK YOU NEWLY CREATED INSTANCE IN THE LIST OF RUNNING INSTANCES. 
   If you are not automatically directed to the list of instances, then
-    - click on the AWS Smile on the top menu, to access the EC2 dashboard
- 
-    - Select EC2 Service
- 
-    - In the EC2 Dashboard, click on either “Running Instances” under Resources or “Instances” under Instances in the left menu.
+  - click on the AWS Smile on the top menu, to access the EC2 dashboard
+  - Select EC2 Service
+  - In the EC2 Dashboard, click on either “Running Instances” under Resources or “Instances” under Instances in the left menu.
   
   ![Running Instances Menu](images/runninginstancesmenu.PNG)
  
 
-    **Running Instances**
-    You should now see your instance running in the Running Instances section.
+   **Running Instances**
+   You should now see your instance running in the Running Instances section.
     
-    ![You Instance](images/yourinstance.PNG)
+   ![You Instance](images/yourinstance.PNG)
+
 
 
 ## Configure your EC2 Instance using Docker
 Let’s login to our EC2 Instance and download docker.
 1.  ### GET YOUR PUBLIC IP ADDRESS FROM THE EC2 INSTANCE YOU CREATED
     Go to Running Instances and select your instance. Note down the IP Address from the description section.
- 
+    
+    ![Get Public IP](images/getip.PNG)
+    
+
 2.  ### SSH INTO YOUR EC2 INSTANCE 
-    Go to Bash shell and use the command, ssh username@<public.ip.address> to securely login to your EC2 Instance
+    Go to Bash shell and use the command, **ssh username@<public.ip.address>** to securely login to your EC2 Instance
 
     We chose Ubuntu as our Operating System, and ubuntu’s default user is ubuntu.
 
-    So, translating the above command, it is  ssh ubuntu@35.16.120.64
+    So, translating the above command, it is  **ssh ubuntu@35.16.120.64**
 
- 
+    ![Login to your Instance](images/bashlogin.PNG)
+
     If you successfully ssh into your instance, you should be at user@ip-private prompt
 
+
 3.  ### INSTALL DOCKER
-    Use curl to download docker and pass it to shell.
+    Use **curl** to download docker and pass it to shell.
     
     The command to do so is below.
- 
+   
+    ![Download Docker](images/bashgetdocker.PNG)
 
-    Once docker installation is complete, you can check the installation with the command, docker -v
+    Once docker installation is complete, you can check the installation with the command, **docker -v**
  
+    ![Check Docker Version](images/dockerversion.PNG)
+    
 
 4.  ### ADD UBUNTU USER TO DOCKER GROUP
     By default, the docker command line client requires sudo access to issue commands to docker daemon. To allow ubuntu to issue docker commands without sudo, let’s add ubuntu user to docket group. To add ubuntu user to docker group use the command, 
 
     **sudo usermod -aG docker ubuntu**
 
+
 5.  ### REBOOT/RECONNECT FOR CHANGES TO TAKE EFFECT
-    To disconnect, just use command exit and log back into your instance.
+    To disconnect, just use command **exit** and log back into your instance.
 
 
 
@@ -224,7 +234,7 @@ Let’s login to our EC2 Instance and download docker.
         use command: **_docker pull jupyter/datascience-notebook_**
     -	Use command **_docker images_** to check Jupyter Data Science Notebook image we just pulled
  
-    ![Docker Images](images/dockerimages.PNG)
+     ![Docker Images](images/dockerimages.PNG)
  
 
 2.  ### CREATE THE DOCKER CONTAINER
@@ -241,23 +251,27 @@ Let’s login to our EC2 Instance and download docker.
     
     ![Docker Container](images/dockercontainer.PNG)
     
-    Note, Container is an instance of an image. What we see below is an instance of Jupiter image we pulled above.
-    ![Inststance](images/dockercontainerinstance.PNG)
+     Note, Container is an instance of an image. What we see below is an instance of Jupiter image we pulled above.
+    
+     ![Inststance](images/dockercontainerinstance.PNG)
  
  
 3.  ### GET THE JUPYTER DATA SCIENCE NOTEBOOK SERVER UP AND RUNNING
 
     To get the Notebook server up and running, execute the command below.
-docker exec <first-4-letters-of-container-id> Jupiter notebook list
+      
+    **docker exec <first-4-letters-of-container-id> Jupiter notebook list**
 
-   On executing the command, it will display a url and token of the notebook that can be used to login to the Jupiter Notebook Server.
+    On executing the command, it will display a url and token of the notebook that can be used to login to the Jupiter Notebook Server.
    
-   ![Jupyter Token](images/jupytertoken.PNG)
+    ![Jupyter Token](images/jupytertoken.PNG)
 
-   Launch a browser and type in your EC2 instance’s public IP address. This will display your Jupiter Data Science Notebook.
+    Launch a browser and type in your EC2 instance’s public IP address. This will display your Jupiter Data Science Notebook.
    Use the token to login to your notebook server on the website.
 
-   ![Jupyter Login](images/jupyterlogin.PNG)
+    ![Jupyter Login](images/jupyterlogin.PNG)
+
+
 
 
 
@@ -267,6 +281,7 @@ docker exec <first-4-letters-of-container-id> Jupiter notebook list
 2)  Once the user logs into the Jupyter Notebook Server, it creates a cookie on the users local machine and stores the password in the cookie. This makes it vulnerable to hackers.
 3)  Jupiter Notebook Server’s web interface provides access to terminals. Hackers can launch the terminal and execute all system commands like a logged in user.
 4)  Attackers can run arbitrary code from within the notebook and attack the system.
+
 
 
 
