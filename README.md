@@ -5,12 +5,17 @@
 The purpose of this document is to provide a detailed guide to help in installing and configuring a Jupyter Data Science Notebook Server on Amazon Web Services (AWS). 
 It also discusses the following at the end:
 - Jupyter Notebook Security Concerns
-- Cost of running a notebook server for 3 months
+- Cost of running a notebook server for 3 months  
 
-## Architecture of the System (AWS, Docker, Jupyter)
+
+
+## Architecture of the System (AWS, Docker, Jupyter)  
 
 Here is a little diagram to help understand the system.
 ![Architecture](images/architecture.PNG)
+
+
+
 
 ## Pre-requisites:
    Before we get into the nitty-gritty of setting up/configuring the Jupyter Data Science Notebook, we need to go through some basic set up.
@@ -41,6 +46,8 @@ On Mac Operating System, no installation is needed, as this is available native.
 
     Create a GitHub account at http://github.com, and fork our class repo at  https://github.com/joshuacook/UCLA_CSX_450_1_2018_W (Links to an external site.)
     To fork, just click the “Fork” button on the top right corner. Forking creates a copy of the project repository in your personal git-hub account. Any changes to your copy will not affect the original class copy.
+
+
 
 
 
@@ -180,6 +187,8 @@ Please follow the below steps to configure EC2 on Amazon Web Services (AWS).
 
 
 
+
+
 ## Configure your EC2 Instance using Docker
 Let’s login to our EC2 Instance and download docker.
 1.  ### GET YOUR PUBLIC IP ADDRESS FROM THE EC2 INSTANCE YOU CREATED
@@ -220,6 +229,7 @@ Let’s login to our EC2 Instance and download docker.
 
 5.  ### REBOOT/RECONNECT FOR CHANGES TO TAKE EFFECT
     To disconnect, just use command **exit** and log back into your instance.
+
 
 
 
@@ -275,6 +285,7 @@ Let’s login to our EC2 Instance and download docker.
 
 
 
+
 ## Jupyter Notebook Security Concerns
 
 1)  In token based authentication, the token can be passed via query parameter, which hackers can steal and gain access to our system.
@@ -285,16 +296,17 @@ Let’s login to our EC2 Instance and download docker.
 
 
 
+
 ## Cost of running a notebook server for 3 months
 
 On-demand pricing (https://aws.amazon.com/ec2/pricing/on-demand/) for EC2 lets you pay for only running instances and pay for computing capacity by the hour or second without any long-term commitments. So choose to pick this pricing plan.
 Based on this plan, for region Oregon, here is my budget:
 
-![Cost of running notebook server fr 3 months](images/budget.PNG)
+![Cost of running notebook server fr 3 months](images/budget.PNG)  
 
 
 
---
+
 
 ## Author
 
