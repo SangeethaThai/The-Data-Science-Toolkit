@@ -1,4 +1,4 @@
-# CSX_450_1_Project_1 The Data Science Toolkit
+# The Data Science Toolkit
 
 ## Goal
 
